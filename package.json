@@ -1,0 +1,9 @@
+{
+  "name": "dineflow-pos",
+  "private": true,
+  "scripts": {
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "seed": "npm --prefix server run seed"
+  }
+}
