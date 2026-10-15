@@ -1,4 +1,4 @@
 #!/bin/bash
 cd server
-npm install
+npm ci
 npx tsc
