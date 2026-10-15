@@ -1,4 +1,3 @@
 #!/bin/bash
-cd server
-npm install --legacy-peer-deps
-npm run build
+set -e
+cd server && npm install && npx tsc
