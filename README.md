@@ -104,6 +104,61 @@ All routes except `/auth/login` and `/health` need `Authorization: Bearer <token
 `server`: `npm run dev` · `npm test` (billing unit tests) · `npm run seed` · `npm run build` · `npm run typecheck`
 `client`: `npm run dev` · `npm run build` · `npm run typecheck`
 
+## Deployment
+
+### Deploy on Render (Server) + Vercel (Client)
+
+**Server (Render):**
+
+1. Sign up at https://render.com (free tier)
+2. Click "New +" → "Web Service" → Connect GitHub → Select this repo
+3. Configure:
+   - **Name:** `dineflow-server`
+   - **Root Directory:** `server`
+   - **Build Command:** `npm install && npm run build`
+   - **Start Command:** `npm start`
+4. Add Environment Variables (from `server/.env`):
+   - `MONGODB_URI`: Your MongoDB Atlas connection string
+   - `JWT_SECRET`: Your JWT secret
+   - `JWT_EXPIRES_IN`: `8h`
+   - `CLIENT_ORIGIN`: Your Vercel client URL (e.g., `https://dineflow.vercel.app`)
+   - `TAX_RATE`: `0.05`
+   - `TIMEZONE`: `Asia/Kolkata`
+   - `RESTAURANT_NAME`: `DineFlow`
+   - `RESTAURANT_ADDRESS`: Your address
+   - `LOGIN_RATE_LIMIT`: `10`
+   - `NODE_ENV`: `production`
+5. Click "Create Web Service" and wait ~5 minutes
+
+Your server URL will be like: `https://dineflow-server.onrender.com`
+
+**Client (Vercel):**
+
+1. Sign up at https://vercel.com (free tier)
+2. Click "Add New" → "Project" → Import GitHub repo
+3. Configure:
+   - **Root Directory:** `client`
+   - **Framework:** Next.js (auto-detected)
+4. Environment Variables:
+   - `NEXT_PUBLIC_API_URL`: `https://dineflow-server.onrender.com/api` (use your Render server URL)
+5. Click "Deploy" and wait ~3 minutes
+
+Your client URL will be like: `https://dineflow.vercel.app`
+
+**Update MongoDB Atlas IP whitelist:**
+- Go to MongoDB Atlas → Network Access
+- Add Render IP: `0.0.0.0/0` (or find Render's IP range)
+
+**Test:**
+- Open your Vercel URL in browser
+- Sign in with `admin@dineflow.com` / `Admin@123`
+
+### Live deployment
+
+- **Frontend:** https://dineflow.vercel.app
+- **Backend API:** https://dineflow-server.onrender.com/api
+- **Demo:** `admin@dineflow.com` / `Admin@123` or `staff@dineflow.com` / `Staff@123`
+
 ## Possible next steps
 
 API integration tests, WebSocket updates instead of 15-second polling, per-line order notes, table management, httpOnly-cookie auth, and deployment config.
