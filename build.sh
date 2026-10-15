@@ -1,3 +1,3 @@
 #!/bin/bash
 set -e
-cd server && npm install && npx tsc
+cd server && NODE_ENV=development npm install && npx tsc
