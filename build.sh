@@ -1,4 +1,4 @@
 #!/bin/bash
 cd server
-npm ci
-npx tsc
+npm install --legacy-peer-deps
+npm run build
