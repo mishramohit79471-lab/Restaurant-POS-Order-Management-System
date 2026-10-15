@@ -1,3 +1,2 @@
 #!/bin/bash
-cd server
-npm start
+cd server && node dist/index.js
