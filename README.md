@@ -107,3 +107,13 @@ All routes except `/auth/login` and `/health` need `Authorization: Bearer <token
 ## Possible next steps
 
 API integration tests, WebSocket updates instead of 15-second polling, per-line order notes, table management, httpOnly-cookie auth, and deployment config.
+
+## Output
+<img width="1911" height="882" alt="Dashboard" src="https://github.com/user-attachments/assets/7bebab63-accb-4b53-9e00-2996d768e4b2" />
+<img width="1893" height="867" alt="Pos_terminal" src="https://github.com/user-attachments/assets/c8d15dde-c6fc-4051-97b9-288f3d63bf65" />
+<img width="1582" height="872" alt="Billing" src="https://github.com/user-attachments/assets/e727ad50-ea18-4553-952c-5989e8c4d1d5" />
+<img width="1866" height="732" alt="LiveOrders" src="https://github.com/user-attachments/assets/3e813efd-070f-454c-8463-4363aa581a56" />
+
+
+
+
